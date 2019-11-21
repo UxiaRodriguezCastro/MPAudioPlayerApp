@@ -51,6 +51,12 @@
             android:layout_toRightOf="@+id/buttonPause"
             android:layout_toEndOf="@+id/buttonPause"
             />
+
+        <VideoView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/videoView" />
+
     </LinearLayout>
 </RelativeLayout>
 

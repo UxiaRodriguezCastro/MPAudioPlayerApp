@@ -1,10 +1,12 @@
 package com.example.dam222.mpaudiouxiaapp;
 
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.VideoView;
 
 import java.io.IOException;
 
@@ -15,6 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnPause;
     private Button btnStop;
     private MediaPlayer mediaplayer;
+    //private VideoView video;
 
 
     @Override
@@ -25,7 +28,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //Inicializar el media player
         mediaplayer = MediaPlayer.create(this, R.raw.audio);
-       // mediaPlayer.start();
+        //mediaplayer.start();
+        //Inicializamos la clase VideoView asociandole el fichero de Video
+
+        //video=(VideoView) findViewById(R.id.videoView);
+        //String path = "android.resource://" + getPackageName() + "/" + R.raw.mulan;
+        //video.setVideoURI(Uri.parse(path));
 
         //Obtenemos los tres botones de la interfaz
         btnPlay= (Button)findViewById(R.id.buttonPlay);
@@ -46,27 +54,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch(v.getId()){
             case R.id.buttonPlay:
                 //Iniciamos el audio
-                mediaplayer.start();
+               mediaplayer.start();
+                //video.start();
                 break;
             case R.id.buttonPause:
                 //Pausamos el audio
                 mediaplayer.pause();
+                //video.pause();
                 break;
             case R.id.buttonStop:
                 //Paramos el audio y volvemos a inicializar
                 try {
                     mediaplayer.stop();
                     mediaplayer.prepare();
-                    mediaplayer.seekTo(0);
-                } catch (IOException e) {
+                   mediaplayer.seekTo(0);
+                   //video.pause();
+                    //video.seekTo(0);
+                } catch (Exception e) {
                     e.printStackTrace();
-                }
 
+
+                }
 
                 break;
 
         }
     }//fin on click
+
+
+
 }
 
 
